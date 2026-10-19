@@ -1,0 +1,46 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "C:/Users/Dell/Desktop/System_Projects/Latency-Aware_Backtester/build/_deps/catch2-subbuild/CMakeFiles/catch2-populate"
+		},
+		{
+			"file" : "C:/Users/Dell/Desktop/System_Projects/Latency-Aware_Backtester/build/_deps/catch2-subbuild/CMakeFiles/2ab0076ba2c3e07c5571d755a41dccc5/catch2-populate.rule"
+		},
+		{
+			"file" : "C:/Users/Dell/Desktop/System_Projects/Latency-Aware_Backtester/build/_deps/catch2-subbuild/CMakeFiles/c6166a8348d47e0d21351485978f9a9b/catch2-populate-complete.rule"
+		},
+		{
+			"file" : "C:/Users/Dell/Desktop/System_Projects/Latency-Aware_Backtester/build/_deps/catch2-subbuild/CMakeFiles/542f68850af3c50c55d2f1e2cdf9e0d9/catch2-populate-build.rule"
+		},
+		{
+			"file" : "C:/Users/Dell/Desktop/System_Projects/Latency-Aware_Backtester/build/_deps/catch2-subbuild/CMakeFiles/542f68850af3c50c55d2f1e2cdf9e0d9/catch2-populate-configure.rule"
+		},
+		{
+			"file" : "C:/Users/Dell/Desktop/System_Projects/Latency-Aware_Backtester/build/_deps/catch2-subbuild/CMakeFiles/542f68850af3c50c55d2f1e2cdf9e0d9/catch2-populate-download.rule"
+		},
+		{
+			"file" : "C:/Users/Dell/Desktop/System_Projects/Latency-Aware_Backtester/build/_deps/catch2-subbuild/CMakeFiles/542f68850af3c50c55d2f1e2cdf9e0d9/catch2-populate-install.rule"
+		},
+		{
+			"file" : "C:/Users/Dell/Desktop/System_Projects/Latency-Aware_Backtester/build/_deps/catch2-subbuild/CMakeFiles/542f68850af3c50c55d2f1e2cdf9e0d9/catch2-populate-mkdir.rule"
+		},
+		{
+			"file" : "C:/Users/Dell/Desktop/System_Projects/Latency-Aware_Backtester/build/_deps/catch2-subbuild/CMakeFiles/542f68850af3c50c55d2f1e2cdf9e0d9/catch2-populate-patch.rule"
+		},
+		{
+			"file" : "C:/Users/Dell/Desktop/System_Projects/Latency-Aware_Backtester/build/_deps/catch2-subbuild/CMakeFiles/542f68850af3c50c55d2f1e2cdf9e0d9/catch2-populate-test.rule"
+		},
+		{
+			"file" : "C:/Users/Dell/Desktop/System_Projects/Latency-Aware_Backtester/build/_deps/catch2-subbuild/CMakeFiles/542f68850af3c50c55d2f1e2cdf9e0d9/catch2-populate-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"catch2-populate"
+		],
+		"name" : "catch2-populate"
+	}
+}

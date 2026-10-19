@@ -1,0 +1,8 @@
+# CMake generation dependency list for this directory.
+C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.3/Modules/BasicConfigVersion-SameMajorVersion.cmake.in
+C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.3/Modules/CMakePackageConfigHelpers.cmake
+C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.3/Modules/GNUInstallDirs.cmake
+C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.3/Modules/WriteBasicConfigVersionFile.cmake
+C:/Users/Dell/Desktop/System_Projects/Latency-Aware_Backtester/build/_deps/googlebenchmark-src/cmake/Config.cmake.in
+C:/Users/Dell/Desktop/System_Projects/Latency-Aware_Backtester/build/_deps/googlebenchmark-src/cmake/benchmark.pc.in
+C:/Users/Dell/Desktop/System_Projects/Latency-Aware_Backtester/build/_deps/googlebenchmark-src/src/CMakeLists.txt
