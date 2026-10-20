@@ -4,6 +4,15 @@
     <ClCompile Include="C:\Users\Dell\Desktop\System_Projects\Latency-Aware_Backtester\tests\test_event_queue.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="C:\Users\Dell\Desktop\System_Projects\Latency-Aware_Backtester\tests\test_latency_model.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Dell\Desktop\System_Projects\Latency-Aware_Backtester\tests\test_matching.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Dell\Desktop\System_Projects\Latency-Aware_Backtester\tests\test_portfolio.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="C:\Users\Dell\Desktop\System_Projects\Latency-Aware_Backtester\tests\CMakeLists.txt" />

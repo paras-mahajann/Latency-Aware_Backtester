@@ -1,6 +1,7 @@
 #pragma once
 #include<cstdint>
 #include<stdexcept>
+#include<utility>
 #include<queue>
 #include<vector>
 #include<variant>
@@ -13,9 +14,16 @@ struct OrderFields {
   uint32_t shares;
 };
 
+struct FeedDelivery {
+  ITCHMessage msg;
+};
+
+using EventPayload = std::variant<ITCHMessage, OrderFields, FeedDelivery>;
+
+
 struct SimEvent {
   uint64_t timestamp;
-  std::variant<ITCHMessage, OrderFields> payload;  
+  EventPayload payload;
   uint64_t sequence = 0;
 };
 
@@ -35,10 +43,9 @@ class EventSchedular {
   uint64_t nextSequence = 0;
 
 public:
-    void schedule(uint64_t timestamp,
-        std::variant<ITCHMessage, OrderFields> payload) 
+    void schedule(uint64_t timestamp,EventPayload payload) 
     {
-        queue.push(SimEvent{timestamp, payload, nextSequence++});
+        queue.push(SimEvent{timestamp, std::move(payload), nextSequence++});
     }
 
     bool empty() const noexcept 
@@ -55,3 +62,4 @@ public:
         return e;
     }
 };
+

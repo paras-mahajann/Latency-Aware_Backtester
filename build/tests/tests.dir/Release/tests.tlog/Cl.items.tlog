@@ -1,1 +1,4 @@
 C:\Users\Dell\Desktop\System_Projects\Latency-Aware_Backtester\tests\test_event_queue.cpp;C:\Users\Dell\Desktop\System_Projects\Latency-Aware_Backtester\build\tests\tests.dir\Release\test_event_queue.obj
+C:\Users\Dell\Desktop\System_Projects\Latency-Aware_Backtester\tests\test_latency_model.cpp;C:\Users\Dell\Desktop\System_Projects\Latency-Aware_Backtester\build\tests\tests.dir\Release\test_latency_model.obj
+C:\Users\Dell\Desktop\System_Projects\Latency-Aware_Backtester\tests\test_matching.cpp;C:\Users\Dell\Desktop\System_Projects\Latency-Aware_Backtester\build\tests\tests.dir\Release\test_matching.obj
+C:\Users\Dell\Desktop\System_Projects\Latency-Aware_Backtester\tests\test_portfolio.cpp;C:\Users\Dell\Desktop\System_Projects\Latency-Aware_Backtester\build\tests\tests.dir\Release\test_portfolio.obj

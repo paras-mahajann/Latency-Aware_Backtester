@@ -67,3 +67,4 @@ TEST_CASE("Events with equal timestamps pop in insertion order") {
   std::vector<uint64_t> expected = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
   REQUIRE(poppedIds == expected);
 }
+
