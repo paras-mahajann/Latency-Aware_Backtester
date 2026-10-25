@@ -1,3 +1,0 @@
-C:/Users/Dell/Desktop/System_Projects/Latency-Aware_Backtester/build/_deps/catch2-subbuild/CMakeFiles/catch2-populate.dir
-C:/Users/Dell/Desktop/System_Projects/Latency-Aware_Backtester/build/_deps/catch2-subbuild/CMakeFiles/ALL_BUILD.dir
-C:/Users/Dell/Desktop/System_Projects/Latency-Aware_Backtester/build/_deps/catch2-subbuild/CMakeFiles/ZERO_CHECK.dir
