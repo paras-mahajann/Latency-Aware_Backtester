@@ -1,10 +1,9 @@
 #pragma once
+#include <algorithm>
 #include <cassert>
 #include <cstddef>
 #include <utility>
 #include <vector>
-#include<algorithm>
-
 
 template <typename T, size_t PoolSize>
 class PoolAllocator {

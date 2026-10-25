@@ -1,59 +1,53 @@
 #pragma once
-#include<cstdint>
-#include<stdexcept>
-#include<utility>
-#include<queue>
-#include<vector>
-#include<variant>
+#include <cstdint>
+#include <queue>
+#include <stdexcept>
+#include <utility>
+#include <variant>
+#include <vector>
+
 #include "itch_messages.hpp"
 
 struct OrderFields {
-  uint64_t orderId;
-  char side;
-  uint32_t price;
-  uint32_t shares;
+    uint64_t orderId;
+    char side;
+    uint32_t price;
+    uint32_t shares;
 };
 
 struct FeedDelivery {
-  ITCHMessage msg;
+    ITCHMessage msg;
 };
 
 using EventPayload = std::variant<ITCHMessage, OrderFields, FeedDelivery>;
 
-
 struct SimEvent {
-  uint64_t timestamp;
-  EventPayload payload;
-  uint64_t sequence = 0;
+    uint64_t timestamp;
+    EventPayload payload;
+    uint64_t sequence = 0;
 };
 
 struct EventComparator {
-  bool operator()(const SimEvent &a, const SimEvent &b) const{
-    if (a.timestamp != b.timestamp)
-      return a.timestamp > b.timestamp;
-    return a.sequence > b.sequence;
-  }
+    bool operator()(const SimEvent& a, const SimEvent& b) const {
+        if (a.timestamp != b.timestamp) return a.timestamp > b.timestamp;
+        return a.sequence > b.sequence;
+    }
 };
 
-using EventQueue =
-    std::priority_queue<SimEvent, std::vector<SimEvent>, EventComparator>;
+using EventQueue = std::priority_queue<SimEvent, std::vector<SimEvent>, EventComparator>;
 
 class EventScheduler {
-  EventQueue queue;
-  uint64_t nextSequence = 0;
+    EventQueue queue;
+    uint64_t nextSequence = 0;
 
-public:
-    void schedule(uint64_t timestamp,EventPayload payload) 
-    {
+   public:
+    void schedule(uint64_t timestamp, EventPayload payload) {
         queue.push(SimEvent{timestamp, std::move(payload), nextSequence++});
     }
 
-    bool empty() const noexcept 
-    { 
-        return queue.empty();
-    }
+    bool empty() const noexcept { return queue.empty(); }
 
-    SimEvent popNext() { 
+    SimEvent popNext() {
         if (queue.empty()) {
             throw std::out_of_range("EventScheduler is empty");
         }
@@ -62,4 +56,3 @@ public:
         return e;
     }
 };
-
