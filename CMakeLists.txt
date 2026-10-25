@@ -18,6 +18,9 @@ endif()
 add_library(backtester INTERFACE)
 target_include_directories(backtester INTERFACE include)
 
+add_executable(sweep examples/sweep.cpp)
+target_link_libraries(sweep PRIVATE backtester)
+
 enable_testing()
 add_subdirectory(tests)
 add_subdirectory(benchmarks)

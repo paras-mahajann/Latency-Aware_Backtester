@@ -14,6 +14,7 @@
 		<BuildDependency Project="_deps/googlebenchmark-build/src/benchmark.vcxproj"/>
 		<BuildDependency Project="_deps/googlebenchmark-build/src/benchmark_main.vcxproj"/>
 		<BuildDependency Project="benchmarks/benchmarks.vcxproj"/>
+		<BuildDependency Project="sweep.vcxproj"/>
 		<BuildDependency Project="tests/tests.vcxproj"/>
 	</Project>
 	<Project Path="_deps/catch2-build/src/Catch2.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="8d538cbe-01bf-4a2e-a98a-6c368fdf13d7">
@@ -50,6 +51,9 @@
 		<BuildDependency Project="ZERO_CHECK.vcxproj"/>
 		<BuildDependency Project="_deps/googlebenchmark-build/src/benchmark.vcxproj"/>
 		<BuildDependency Project="_deps/googlebenchmark-build/src/benchmark_main.vcxproj"/>
+	</Project>
+	<Project Path="sweep.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="17e820a5-ec73-358e-9c63-44c4b8311e2a">
+		<BuildDependency Project="ZERO_CHECK.vcxproj"/>
 	</Project>
 	<Project Path="tests/tests.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="2398d75f-e1b8-3613-b4fa-7c8b51bbfc94">
 		<BuildDependency Project="_deps/catch2-build/src/Catch2.vcxproj"/>

@@ -11,6 +11,8 @@ add_executable(tests
     test_latency_model.cpp
     test_matching.cpp
     test_portfolio.cpp
+    test_simulator.cpp
+    test_feed_generator.cpp
 )
 target_link_libraries(tests PRIVATE backtester Catch2::Catch2WithMain)
 add_test(NAME BacktesterTests COMMAND tests)

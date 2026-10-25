@@ -38,7 +38,7 @@ struct EventComparator {
 using EventQueue =
     std::priority_queue<SimEvent, std::vector<SimEvent>, EventComparator>;
 
-class EventSchedular {
+class EventScheduler {
   EventQueue queue;
   uint64_t nextSequence = 0;
 

@@ -194,6 +194,10 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <Project>{FF6DB3E7-D8B3-3CD3-A1B0-A8BAE4C3D158}</Project>
       <Name>benchmarks</Name>
     </ProjectReference>
+    <ProjectReference Include="C:\Users\Dell\Desktop\System_Projects\Latency-Aware_Backtester\build\sweep.vcxproj">
+      <Project>{17E820A5-EC73-358E-9C63-44C4B8311E2A}</Project>
+      <Name>sweep</Name>
+    </ProjectReference>
     <ProjectReference Include="C:\Users\Dell\Desktop\System_Projects\Latency-Aware_Backtester\build\tests\tests.vcxproj">
       <Project>{2398D75F-E1B8-3613-B4FA-7C8B51BBFC94}</Project>
       <Name>tests</Name>

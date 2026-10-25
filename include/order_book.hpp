@@ -90,7 +90,7 @@ class OrderBook {
            return fills;
      }
 
-    std::list<uint64_t> getOrdersAtPrice(char side, uint32_t price) {
+    std::list<uint64_t> getOrdersAtPrice(char side, uint32_t price) const{
         std::list<uint64_t> result;
         if (side == 'B') {
             auto it = bids.find(price);
@@ -103,29 +103,35 @@ class OrderBook {
         }
         return result;
     }
-    uint32_t getOrderShares(uint64_t orderId) {
+    uint32_t getOrderShares(uint64_t orderId) const{
         auto idxIt = orderIndex.find(orderId);
         if (idxIt == orderIndex.end()) return 0;
         Order* order = *idxIt->second.listIt;
         return order->shares;
     }
 
-    uint32_t bestBid() {
+    uint32_t bestBid() const{
         if (bids.empty()) return 0;
         return bids.begin()->first;
     }
-    uint32_t bestAsk() {
+    uint32_t bestAsk() const{
         if (asks.empty()) return 0;
         return asks.begin()->first;
     }
-    void addOrder(uint64_t orderId, char side, uint32_t price, uint32_t shares) {
-        Order* order = pool.construct(orderId, price, shares, side);
+    bool addOrder(uint64_t orderId, char side, uint32_t price,
+                  uint32_t shares) {
+      if (orderIndex.find(orderId) != orderIndex.end())
+        return false; // duplicate ID
 
-        auto& priceLevel = getOrCreatePriceLevel(side, price);
-        priceLevel.push_back(order);
-        auto it = std::prev(priceLevel.end());
+      Order *order = pool.construct(orderId, price, shares, side);
+      if (order == nullptr)
+        return false; // pool exhausted
 
-        orderIndex[orderId] = OrderLocation{price, side, it};
+      auto &priceLevel = getOrCreatePriceLevel(side, price);
+      priceLevel.push_back(order);
+      orderIndex[orderId] =
+          OrderLocation{price, side, std::prev(priceLevel.end())};
+      return true;
     }
 
     void cancelOrder(uint64_t orderId, uint32_t sharesToCancel) {
@@ -138,8 +144,7 @@ class OrderBook {
         auto &priceLevel = getOrCreatePriceLevel(side, price);
 
         Order *order = *loc.listIt;
-        const uint32_t reduceBy = std::min(sharesToCancel, order->shares);
-        order->shares -= reduceBy;
+        order->shares -= std::min(sharesToCancel, order->shares);
        
         if (order->shares == 0) {
           priceLevel.erase(loc.listIt); 

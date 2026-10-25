@@ -49,16 +49,16 @@ TEST_CASE("Empty EventQueue reports empty") {
 }
 
 TEST_CASE("Events with equal timestamps pop in insertion order") {
-  EventSchedular schedular;
+  EventScheduler scheduler;
 
   // Ten events, all at t=1000. Order IDs record the order they were pushed.
   for (uint64_t i = 1; i <= 10; i++) {
-    schedular.schedule(1000, OrderFields{i, 'B', 100, 1});
+    scheduler.schedule(1000, OrderFields{i, 'B', 100, 1});
   }
 
   std::vector<uint64_t> poppedIds;
-  while (!schedular.empty()) {
-    SimEvent event = schedular.popNext();
+  while (!scheduler.empty()) {
+    SimEvent event = scheduler.popNext();
     const auto *f = std::get_if<OrderFields>(&event.payload);
     REQUIRE(f != nullptr);
     poppedIds.push_back(f->orderId);
