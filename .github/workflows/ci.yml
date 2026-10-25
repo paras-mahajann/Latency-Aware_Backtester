@@ -1,0 +1,41 @@
+name: CI
+on: [push, pull_request]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Configure
+        run: cmake -B build -DCMAKE_BUILD_TYPE=Release
+
+      - name: Build
+        run: cmake --build build --parallel
+
+      - name: Test
+        run: ctest --test-dir build --output-on-failure
+
+      # The sweep is seeded, but std::uniform_int_distribution is not
+      # guaranteed to produce the same numbers on every standard library,
+      # so a byte-for-byte diff against a CSV made on Windows could fail for
+      # no real reason. Check the properties that must hold on any platform.
+      - name: Latency sweep sanity checks
+        run: |
+          ./build/sweep > sweep.csv
+          cat sweep.csv
+          awk -F, '
+            { gsub(/\r/, "") }
+            NR == 1 { next }
+            {
+              rows++
+              if ($3 != 6 * $2) { print "FAIL: pnl != 6 * position at latency " $1; bad = 1 }
+              if (rows > 1 && $3 > prev) { print "FAIL: pnl rose when latency rose, at " $1; bad = 1 }
+              if (rows == 1 && $2 != 250000) { print "FAIL: zero latency should capture all 5000 dips"; bad = 1 }
+              prev = $3; last = $2
+            }
+            END {
+              if (rows < 2) { print "FAIL: sweep produced no rows"; bad = 1 }
+              if (last != 0) { print "FAIL: highest latency should capture nothing"; bad = 1 }
+              exit bad
+            }' sweep.csv
